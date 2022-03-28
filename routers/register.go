@@ -31,7 +31,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	_, encontrado, _ := db.DuplicateControl(usr.Email)
+	_, encontrado, _ := db.ExistUser(usr.Email)
 
 	if encontrado == true {
 		http.Error(w, "Ya existe un usuario creado con ese email", 400)
